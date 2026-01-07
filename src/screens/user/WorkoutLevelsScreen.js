@@ -48,7 +48,7 @@ const WorkoutLevelsScreen = ({ navigation }) => {
   };
 
   const isCurrentLevel = (levelName) => {
-    return levelName.toLowerCase() === user.currentLevel?.toLowerCase();
+    return levelName.toLowerCase() === user?.currentLevel?.toLowerCase();
   };
 
   const renderDifficultyStars = (difficulty) => {

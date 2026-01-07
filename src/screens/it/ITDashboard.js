@@ -122,7 +122,7 @@ const ITDashboard = ({ navigation }) => {
       <View style={styles.header}>
         <View>
           <Text style={styles.welcomeText}>Welcome back,</Text>
-          <Text style={styles.userName}>{user.name}</Text>
+          <Text style={styles.userName}>{user?.name || 'IT User'}</Text>
         </View>
         <TouchableOpacity style={styles.logoutButton} onPress={logout}>
           <Ionicons name="log-out-outline" size={24} color="#FF3B30" />

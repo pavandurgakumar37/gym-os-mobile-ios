@@ -14,7 +14,7 @@ const ProgressScreen = () => {
   const { user } = useAuth();
   const [selectedTab, setSelectedTab] = useState('overview');
 
-  const userProgress = progressData[user.id];
+  const userProgress = progressData[user?.id];
 
   const tabs = [
     { key: 'overview', label: 'Overview', icon: 'grid-outline' },
@@ -42,7 +42,7 @@ const ProgressScreen = () => {
       <View style={styles.streakCard}>
         <Ionicons name="flame" size={48} color="#FF9500" />
         <View style={styles.streakInfo}>
-          <Text style={styles.streakValue}>{user.streak || 0}</Text>
+          <Text style={styles.streakValue}>{user?.streak || 0}</Text>
           <Text style={styles.streakLabel}>Day Streak</Text>
         </View>
         <View style={styles.streakTrend}>

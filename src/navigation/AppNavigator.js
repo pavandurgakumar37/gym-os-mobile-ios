@@ -26,6 +26,7 @@ const Tab = createBottomTabNavigator();
 
 // Admin Tab Navigator
 const AdminTabs = () => {
+  console.log('[AdminTabs] Component rendered');
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -122,10 +123,18 @@ const ITTabs = () => {
 
 const AppNavigator = () => {
   const { user, loading } = useAuth();
+  
+  console.log('[AppNavigator] Component rendered');
+  console.log('[AppNavigator] Loading state:', loading);
+  console.log('[AppNavigator] User state:', user);
+  console.log('[AppNavigator] User role:', user?.role);
 
   if (loading) {
+    console.log('[AppNavigator] Still loading, returning null');
     return null; // Or a loading screen
   }
+  
+  console.log('[AppNavigator] Loading complete, checking user role...');
 
   return (
     <NavigationContainer>

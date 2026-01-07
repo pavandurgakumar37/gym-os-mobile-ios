@@ -13,22 +13,22 @@ import { Ionicons } from '@expo/vector-icons';
 const UserDashboard = ({ navigation }) => {
   const { user, logout } = useAuth();
 
-  const currentWorkoutLevel = workoutLevels.find(level => 
-    level.name.toLowerCase() === user.currentLevel?.toLowerCase()
+  const currentWorkoutLevel = workoutLevels.find(level =>
+    level.name.toLowerCase() === user?.currentLevel?.toLowerCase()
   ) || workoutLevels[0];
 
-  const currentMealPlan = mealPlans[user.goal] || mealPlans.fatloss;
+  const currentMealPlan = mealPlans[user?.goal] || mealPlans.fatloss;
 
   const stats = [
     {
       title: 'Current Streak',
-      value: `${user.streak || 0} days`,
+      value: `${user?.streak || 0} days`,
       icon: 'flame-outline',
       color: '#FF9500',
     },
     {
       title: 'Workout Level',
-      value: user.currentLevel || 'Beginner',
+      value: user?.currentLevel || 'Beginner',
       icon: 'fitness-outline',
       color: '#007AFF',
     },
@@ -40,7 +40,7 @@ const UserDashboard = ({ navigation }) => {
     },
     {
       title: 'Goal',
-      value: user.goal || 'Not set',
+      value: user?.goal || 'Not set',
       icon: 'flag-outline',
       color: '#5856D6',
     },
@@ -101,7 +101,7 @@ const UserDashboard = ({ navigation }) => {
         <View style={styles.headerContent}>
           <View>
             <Text style={styles.welcomeText}>Welcome back,</Text>
-            <Text style={styles.userName}>{user.name}</Text>
+            <Text style={styles.userName}>{user?.name || 'User'}</Text>
           </View>
           <TouchableOpacity style={styles.logoutButton} onPress={logout}>
             <Ionicons name="log-out-outline" size={24} color="#FF3B30" />
@@ -114,7 +114,7 @@ const UserDashboard = ({ navigation }) => {
         <View style={styles.streakContent}>
           <Text style={styles.streakTitle}>You're on fire!</Text>
           <Text style={styles.streakText}>
-            {user.streak || 0} day streak - Keep it up!
+            {user?.streak || 0} day streak - Keep it up!
           </Text>
         </View>
       </View>

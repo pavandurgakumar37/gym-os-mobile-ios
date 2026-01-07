@@ -15,7 +15,7 @@ const MealPrepScreen = () => {
   const { user } = useAuth();
   const [selectedMeal, setSelectedMeal] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
-  const [selectedGoal, setSelectedGoal] = useState(user.goal || 'fatloss');
+  const [selectedGoal, setSelectedGoal] = useState(user?.goal || 'fatloss');
 
   const currentPlan = mealPlans[selectedGoal];
 

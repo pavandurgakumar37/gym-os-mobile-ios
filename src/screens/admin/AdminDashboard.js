@@ -12,6 +12,13 @@ import { Ionicons } from '@expo/vector-icons';
 
 const AdminDashboard = ({ navigation }) => {
   const { user, logout } = useAuth();
+  
+  // Debug logging to understand state/data flow
+  console.log('[AdminDashboard] Component rendered');
+  console.log('[AdminDashboard] User object:', user);
+  console.log('[AdminDashboard] User is null:', user === null);
+  console.log('[AdminDashboard] User is undefined:', user === undefined);
+  console.log('[AdminDashboard] Attempting to access user.name...');
 
   const stats = [
     {
@@ -95,7 +102,7 @@ const AdminDashboard = ({ navigation }) => {
       <View style={styles.header}>
         <View>
           <Text style={styles.welcomeText}>Welcome back,</Text>
-          <Text style={styles.userName}>{user.name}</Text>
+          <Text style={styles.userName}>{user?.name || 'Admin'}</Text>
         </View>
         <TouchableOpacity style={styles.logoutButton} onPress={logout}>
           <Ionicons name="log-out-outline" size={24} color="#FF3B30" />
